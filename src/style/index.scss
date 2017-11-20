@@ -1,22 +1,30 @@
-html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	color: #444;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+@import "~semantic-ui-css/semantic.min.css";
+@import "~react-widgets/dist/css/react-widgets.css";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #f8f8f8 !important;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #app {
-	height: 100%;
+  height: 100%;
+}
+
+.slim {
+  max-width: 600px;
 }
 
 .center {
@@ -24,4 +32,16 @@ html, body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.emoji-mart {
+  width: 100% !important;
+}
+
+.emoji-mart-scroll {
+  height: 125px !important;
+}
+
+.rw-widget-container, .rw-select-bordered {
+  border: 0 !important;
 }

@@ -1,6 +1,6 @@
 import { h, Component } from "preact";
 import { auth, googleAuthProvider } from "../lib/firebase"
-import { Button, Icon, Container, Segment, Image, Header } from "semantic-ui-react"
+import { Button, Icon, Container, Segment, Image, Header, Divider } from "semantic-ui-react"
 import Logo from "../assets/logo.svg"
 
 
@@ -14,16 +14,15 @@ class SignIn extends Component {
 
   render({ }, { loading }) {
     return (
-      <Container textAlign="center" text>
-        <Segment compact padded raised textAlign="center" className="center" >
-          <Header as="h1">
-            <Image src={Logo} size='medium' centered size="large" />
-            Countr
+      <Container textAlign="center" text className="center">
+        <Header as="h1">
+          ⌛
+          Countr
           </Header>
-          <Button circular color="google plus" loading={loading} onClick={this.signIn} size="massive">
-            <Icon name='google plus' /> Sign In
-          </Button>
-        </Segment>
+        <Divider horizontal>
+          Sign In
+        </Divider>
+        <Button circular color="google plus" icon="google plus" loading={loading} onClick={this.signIn} size="massive" />
       </Container>
 
     )

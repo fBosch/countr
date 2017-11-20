@@ -30,10 +30,15 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "emoji-mart": "^2.2.1",
     "firebase": "^4.6.2",
+    "moment": "^2.19.2",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.6.0",
+    "react-widgets": "^4.1.1",
+    "react-widgets-globalize": "^4.0.4",
+    "react-widgets-moment": "^4.0.4",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.76.0"
   }

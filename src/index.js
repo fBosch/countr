@@ -1,5 +1,12 @@
-import './style'
-import 'semantic-ui-css/semantic.min.css'
-import App from './components/app'
+import "./style"
 
-export default App;
+import "emoji-mart/css/emoji-mart.css"
+
+import App from "./components/app"
+
+import moment from "moment"
+import momentLocalizer from "react-widgets-moment"
+moment.locale("en")
+momentLocalizer()
+
+export default App

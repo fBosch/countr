@@ -1,8 +1,7 @@
 import { h, Component } from "preact"
 import SignIn from "../components/sign-in"
-import Counters from "../components/counters"
-import CurrentUser from "../components/current-user"
-import { auth } from "../lib/firebase"
+import Dashboard from "../components/dashboard"
+import { auth, database } from "../lib/firebase"
 import { Container, Dimmer, Loader } from "semantic-ui-react"
 
 
@@ -15,9 +14,7 @@ class Home extends Component {
 
   componentWillMount() {
     this.setState({ currentUser: auth.currentUser })
-    auth.onAuthStateChanged(currentUser => {
-      this.setState({ currentUser, loading: false })
-    })
+    auth.onAuthStateChanged(currentUser => this.setState({ currentUser, loading: false }))
   }
 
   render({ }, { currentUser, loading }) {
@@ -27,8 +24,8 @@ class Home extends Component {
       </Dimmer>
     )
     return (
-      <Container className="home" content>
-        {currentUser !== null ? <Counters /> : <SignIn />}
+      <Container className="home">
+        {currentUser !== null ? <Dashboard /> : <SignIn />}
       </Container>
     )
   }
