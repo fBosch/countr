@@ -1,43 +1,27 @@
 import { h, Component } from "preact"
-import { Button, Icon, Input, Image, Divider, Modal, Header, Form, Container } from "semantic-ui-react"
+import AddCounterForm from "./add-counter-form"
+import { Emoji } from "emoji-mart"
 import { auth } from "../lib/firebase"
-import { DateTimePicker } from 'react-widgets'
-import { Picker } from 'emoji-mart'
+import Modal from "./modal"
+import addTime from "../assets/add-time.svg"
 
 export default class Toolbar extends Component {
 
-  signOut = () => auth.signOut()
+  state = {
+    open: false
+  }
 
-  render({ }, { }) {
+  toggleModal = () => this.setState({ open: !this.state.open })
+
+  render({ }, { emoji, open }) {
     return (
       <div className="toolbar">
-        <Modal trigger={<Button size="mini" circular >
-          <Icon.Group size="large">
-            <Icon name="clock" />
-            <Icon corner name="add" color="green" />
-          </Icon.Group> Add Counter</Button>}>
-          <Modal.Content>
-            <Form>
-              <Form.Field>
-                <label>Title</label>
-                <Input />
-              </Form.Field>
-              <Form.Field>
-                <label>Emoji</label>
-                <Picker color="#ccc" showPreview={false} emoji="hourglass" set="apple" emojiSize={24} />
-              </Form.Field>
-              <Form.Field>
-                <label>Date</label>
-                <DateTimePicker dropUp />
-              </Form.Field>
-              <Form.Button circular size="large" fluid>Add Counter</Form.Button>
-            </Form>
-          </Modal.Content>
+        <button class="button button--add" onClick={this.toggleModal}>
+          <img src={addTime} />
+        </button>
+        <Modal open={open} onCloseClick={this.toggleModal}>
+          <AddCounterForm onSubmit={this.toggleModal} />
         </Modal>
-
-        <Button size="mini" circular floated="right" onClick={this.signOut}>
-          Sign Out
-        </Button>
       </div>
     )
   }

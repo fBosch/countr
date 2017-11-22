@@ -1,0 +1,39 @@
+@import "./variables";
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+
+@mixin webfont() {
+	font-family: $webfont-fallback;
+
+	.wf-active & {
+		text-rendering: optimizeLegibility;
+		text-shadow: 0 0 1px transparent;
+		font-family: $webfont;
+	}
+}
+
+
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

@@ -1,7 +1,7 @@
 import { h, Component } from "preact";
 import { auth, googleAuthProvider } from "../lib/firebase"
-import { Button, Icon, Container, Segment, Image, Header, Divider } from "semantic-ui-react"
 import Logo from "../assets/logo.svg"
+import { Emoji } from "emoji-mart"
 
 
 class SignIn extends Component {
@@ -14,17 +14,12 @@ class SignIn extends Component {
 
   render({ }, { loading }) {
     return (
-      <Container textAlign="center" text className="center">
-        <Header as="h1">
-          ⌛
-          Countr
-          </Header>
-        <Divider horizontal>
-          Sign In
-        </Divider>
-        <Button circular color="google plus" icon="google plus" loading={loading} onClick={this.signIn} size="massive" />
-      </Container>
+      <div className="center text-center">
+        <Emoji emoji={{ id: "hourglass" }} size={20} />
+        Countr
 
+        <button onClick={this.signIn}>Sign In</button>
+      </div>
     )
   }
 }

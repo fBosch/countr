@@ -6,9 +6,9 @@
   "scripts": {
     "test": "eslint src && preact test",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build",
-    "serve": "preact build && preact serve",
-    "dev": "preact watch"
+    "build": "preact --template src/template.html build",
+    "serve": "preact --template src/template.html build && preact serve",
+    "dev": "preact --template src/template.html watch"
   },
   "keywords": [],
   "author": "",
@@ -32,14 +32,17 @@
   "dependencies": {
     "emoji-mart": "^2.2.1",
     "firebase": "^4.6.2",
+    "inline-style-prefixer": "^3.0.8",
+    "lodash.map": "^4.6.0",
     "moment": "^2.19.2",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.6.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-fade-in": "^0.1.5",
+    "react-timeago": "^3.4.3",
     "react-widgets": "^4.1.1",
-    "react-widgets-globalize": "^4.0.4",
     "react-widgets-moment": "^4.0.4",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.76.0"
+    "webfontloader": "^1.6.28"
   }
 }

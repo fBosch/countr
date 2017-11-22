@@ -2,10 +2,10 @@ import { h, Component } from "preact"
 import SignIn from "../components/sign-in"
 import Dashboard from "../components/dashboard"
 import { auth, database } from "../lib/firebase"
-import { Container, Dimmer, Loader } from "semantic-ui-react"
+import Loading from "react-loading"
 
 
-class Home extends Component {
+export default class Home extends Component {
 
   state = {
     currentUser: null,
@@ -18,17 +18,15 @@ class Home extends Component {
   }
 
   render({ }, { currentUser, loading }) {
-    if (loading) return (
-      <Dimmer active>
-        <Loader size='massive'></Loader>
-      </Dimmer>
-    )
+    if (loading) {
+      return <Loading type="spin" color="#0093e9" height={200} width={200} />
+    }
     return (
-      <Container className="home">
+      <div className="home">
         {currentUser !== null ? <Dashboard /> : <SignIn />}
-      </Container>
+      </div>
     )
   }
 }
 
-export default Home
+

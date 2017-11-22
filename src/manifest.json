@@ -1,6 +1,6 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
+  "name": "Countr",
+  "short_name": "Countr",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

@@ -15,5 +15,10 @@
     "standard",
     "standard-preact"
   ],
-  "rules": {}
+  "rules": {
+    "quotes": [
+      "error",
+      "double"
+    ]
+  }
 }
