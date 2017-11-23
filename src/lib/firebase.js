@@ -1,6 +1,5 @@
 import firebase from "firebase"
 
-
 const config = {
   apiKey: "AIzaSyB1TPBcpd6BFGj-mnIHPgXM_WVx-Ydz114",
   authDomain: "countr-f419a.firebaseapp.com",
@@ -14,5 +13,10 @@ firebase.initializeApp(config)
 export default firebase
 
 export const database = firebase.database()
+
+// Authentication
 export const auth = firebase.auth()
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
+export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider()
+export const githubAuthProvider = new firebase.auth.GithubAuthProvider()
+export const twitterAuthProvider = new firebase.auth.TwitterAuthProvider()

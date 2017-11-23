@@ -8,11 +8,14 @@ import deleteButton from "../assets/delete-button.svg"
 export default class Counter extends Component {
 
   deleteCounter = e => {
-    console.log('test')
     e.preventDefault()
-    const counterRef = database.ref('/' + auth.currentUser.uid + '/counters/' + this.props.keyValue)
-    counterRef.remove()
+    if (window.confirm(`Do you really want to delete the "${this.props.counter.title}" counter?`)) {
+      const counterRef = database.ref('/' + auth.currentUser.uid + '/counters/' + this.props.keyValue)
+      counterRef.remove()
+    }
   }
+
+
 
   render({ counter }, { }) {
     return (
@@ -29,7 +32,7 @@ export default class Counter extends Component {
           </div>
         </div>
         <button className="counter__delete" onClick={this.deleteCounter}>
-          <img src={deleteButton} alt="delete"/>
+          <img src={deleteButton} alt="delete" />
         </button>
       </div>
     )

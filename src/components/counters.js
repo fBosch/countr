@@ -3,7 +3,7 @@ import { auth, database } from "../lib/firebase"
 import map from "lodash.map"
 import Counter from "./counter"
 import FadeIn from "react-fade-in"
-import Fader from "react-fader"
+import hand from "../assets/hand.svg"
 
 export default class Counters extends Component {
 
@@ -22,5 +22,12 @@ export default class Counters extends Component {
         </div>
       )
     }
+    return <div className="onboarding">
+      <div className="onboarding__message">
+        You have no counters
+      </div>
+      <img src={hand} className="onboarding__hand" />
+    </div>
+
   }
 }

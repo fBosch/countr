@@ -17,13 +17,11 @@ export default class Header extends Component {
   }
 
   render({ }, { currentUser }) {
-    if (currentUser) {
-      return (
-        <div class="header">
-          <img src={logo} alt="Countr" className="header__logo"/>
-        </div>
-      )
-    }
+    return (
+      <div class="header">
+        <img src={logo} alt="Countr" className="header__logo" />
+      </div>
+    )
   }
 }
 

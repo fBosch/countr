@@ -7,7 +7,7 @@ import { Picker, Emoji } from 'emoji-mart'
 export default class AddCounterForm extends Component {
   initialState = {
     title: null,
-    emoji: "hourglass",
+    emoji: "tada",
     emojiPickerOpened: false,
     loading: false
   }
@@ -18,7 +18,8 @@ export default class AddCounterForm extends Component {
   }
 
   titleChange = event => this.setState({ title: event.target.value })
-
+  toggleEmojiPicker = () => requestAnimationFrame(() => this.setState({ emojiPickerOpened: !this.state.emojiPickerOpened }))
+  setEmoji = emoji => this.setState({ emoji: emoji.id, emojiPickerOpened: false })
   dateChange = dateTime => this.setState({ dateTime })
 
   handleSubmit = e => {
@@ -34,9 +35,6 @@ export default class AddCounterForm extends Component {
     }).then(onSubmit).then(() => this.setState(this.initialState))
   }
 
-  toggleEmojiPicker = () => requestAnimationFrame(() => this.setState({ emojiPickerOpened: !this.state.emojiPickerOpened }))
-
-  setEmoji = emoji => this.setState({ emoji: emoji.id, emojiPickerOpened: false })
 
   render({ }, { emoji, emojiPickerOpened, title }) {
     return (
@@ -46,10 +44,10 @@ export default class AddCounterForm extends Component {
         <label>Date</label>
         <DateTimePicker inputProps={{ required: true }} name="date" onChange={this.dateChange} />
         <label>Emoji</label>
-        <br/>
+        <br />
         <input type="hidden" required name="emoji" value={emoji} />
         {emojiPickerOpened
-          ? <Picker autoFocus color="#0093e9" title="Choose an Emoji" emojiTooltip={true} showPreview={false} set="apple" emojiSize={24} onClick={this.setEmoji} />
+          ? <Picker autoFocus color="#0093e9" title="Choose an Emoji" emoji={emoji} emojiTooltip={true} showPreview={true} set="apple" emojiSize={24} onClick={this.setEmoji} />
           : <div className="add-counter-form__emoji">
             <Emoji size={50} emoji={{ id: emoji }} onClick={this.toggleEmojiPicker} />
           </div>

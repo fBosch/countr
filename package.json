@@ -40,6 +40,7 @@
     "preact-router": "^2.6.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-fade-in": "^0.1.5",
+    "react-social-login-buttons": "^1.3.5",
     "react-timeago": "^3.4.3",
     "react-widgets": "^4.1.1",
     "react-widgets-moment": "^4.0.4",

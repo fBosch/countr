@@ -13,13 +13,17 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    this.setState({ currentUser: auth.currentUser })
-    auth.onAuthStateChanged(currentUser => this.setState({ currentUser, loading: false }))
+    requestAnimationFrame(() => {
+      this.setState({ currentUser: auth.currentUser })
+      auth.onAuthStateChanged(currentUser => this.setState({ currentUser, loading: false }))
+    })
   }
 
   render({ }, { currentUser, loading }) {
     if (loading) {
-      return <Loading type="spin" color="#0093e9" height={200} width={200} />
+      return <div className="loader">
+        Loading...
+      </div>
     }
     return (
       <div className="home">

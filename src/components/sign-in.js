@@ -1,26 +1,22 @@
 import { h, Component } from "preact";
-import { auth, googleAuthProvider } from "../lib/firebase"
+import { auth, googleAuthProvider, facebookAuthProvider, githubAuthProvider } from "../lib/firebase"
 import Logo from "../assets/logo.svg"
-import { Emoji } from "emoji-mart"
-
+import { GoogleLoginButton, FacebookLoginButton, TwitterLoginButton, GithubLoginButton } from "react-social-login-buttons"
 
 class SignIn extends Component {
-  state = { loading: false }
 
-  signIn = () => {
-    this.setState({ loading: true })
-    auth.signInWithRedirect(googleAuthProvider)
-  }
+  signInGoogle = () => auth.signInWithRedirect(googleAuthProvider)
+  signInFacebook = () => auth.signInWithRedirect(facebookAuthProvider)
+  signInGithub = () => auth.signInWithRedirect(githubAuthProvider)
+  signInTwitter = () => auth.signInWithRedirect(twitterAuthProvider)
 
-  render({ }, { loading }) {
-    return (
-      <div className="center text-center">
-        <Emoji emoji={{ id: "hourglass" }} size={20} />
-        Countr
-
-        <button onClick={this.signIn}>Sign In</button>
-      </div>
-    )
+  render({ }, { }) {
+    return <div className="sign-in">
+      <GoogleLoginButton onClick={this.signInGoogle} />
+      <FacebookLoginButton onClick={this.signInFacebook} />
+      <TwitterLoginButton onClick={this.signInTwitter} />
+      <GithubLoginButton onClick={this.signInGithub} />
+    </div >
   }
 }
 
